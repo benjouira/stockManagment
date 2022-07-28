@@ -1,0 +1,29 @@
+USE [DjoDB]
+GO
+
+/****** Object:  Table [dbo].[retourVen]    Script Date: 7/28/2022 8:08:28 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[retourVen]') AND type in (N'U'))
+DROP TABLE [dbo].[retourVen]
+GO
+
+/****** Object:  Table [dbo].[retourVen]    Script Date: 7/28/2022 8:08:28 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[retourVen](
+	[numRetVen] [int] NOT NULL IDENTITY(1,1),
+	[numLignVen] [int] NULL FOREIGN KEY REFERENCES [dbo].[LigneVente] (numLignVen),
+	[dateRet] [date] NULL,
+	[montant] [money] NULL,
+	[etat] [varchar](50) NULL,
+ CONSTRAINT [PK_retourVen] PRIMARY KEY CLUSTERED 
+(
+	[numRetVen] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
