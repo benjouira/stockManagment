@@ -1,0 +1,32 @@
+USE [DjoDB]
+GO
+
+/****** Object:  Table [dbo].[Fournisseur]    Script Date: 7/28/2022 3:44:18 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Fournisseur]') AND type in (N'U'))
+DROP TABLE [dbo].[Fournisseur]
+GO
+
+/****** Object:  Table [dbo].[Fournisseur]    Script Date: 7/28/2022 3:44:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Fournisseur](
+	[numF] [varchar](50) NOT NULL,
+	[nomF] [varchar](100) NULL,
+	[adresse] [varchar](150) NULL,
+	[codeP] [varchar](5) NULL,
+	[ville] [varchar](50) NULL,
+	[telF] [varchar](20) NULL,
+	[emailF] [varchar](50) NULL,
+	[faxF] [varchar](20) NULL,
+ CONSTRAINT [PK_Fournisseur] PRIMARY KEY CLUSTERED 
+(
+	[numF] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
