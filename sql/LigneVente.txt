@@ -1,0 +1,30 @@
+USE [DjoDB]
+GO
+
+/****** Object:  Table [dbo].[LigneVente]    Script Date: 7/28/2022 7:56:31 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LigneVente]') AND type in (N'U'))
+DROP TABLE [dbo].[LigneVente]
+GO
+
+/****** Object:  Table [dbo].[LigneVente]    Script Date: 7/28/2022 7:56:31 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LigneVente](
+	[numLignVen] [int] NOT NULL IDENTITY(1,1),
+	[numVen] [int] NULL FOREIGN KEY REFERENCES [dbo].[Vente] (numVen),
+	[codeArt] [varchar](50) NULL FOREIGN KEY REFERENCES [dbo].[Article] (codeArt),
+	[qte] [int] NULL,
+	[prixVen] [money] NULL,
+	[isDeleted] [bit] NULL,
+ CONSTRAINT [PK_LigneVente] PRIMARY KEY CLUSTERED 
+(
+	[numLignVen] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
