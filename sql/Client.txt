@@ -1,0 +1,29 @@
+USE [DjoDB]
+GO
+
+/****** Object:  Table [dbo].[Client]    Script Date: 7/28/2022 7:36:22 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Client]') AND type in (N'U'))
+DROP TABLE [dbo].[Client]
+GO
+
+/****** Object:  Table [dbo].[Client]    Script Date: 7/28/2022 7:36:22 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Client](
+	[numCli] [int] NOT NULL IDENTITY(1,1),
+	[nomCli] [varchar](50) NULL,
+	[telCli] [varchar](20) NULL,
+	[emailCli] [varchar](50) NULL,
+	[adresse] [varchar](50) NULL,
+ CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED 
+(
+	[numCli] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
